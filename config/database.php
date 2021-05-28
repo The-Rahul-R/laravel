@@ -1,5 +1,5 @@
 <?php
-$DATABASE_URL=parse_url(url:'DATABASE_URL');
+
 
 use Illuminate\Support\Str;
 
@@ -17,6 +17,7 @@ return [
     */
 
     'default' => env('DB_CONNECTION', 'pgsql'),
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -67,11 +68,11 @@ return [
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
-            'host' => $DATABASE_URL['host'],
-            'port' => $DATABASE_URL['port'],
-            'database' => ltrim($DATABASE_URL['path'],charlist:"/"),
-            'username' => $DATABASE_URL['user'],
-            'password' => $DATABASE_URL['pass'],
+            'host' => env('DB_H_HOST'),
+            'port' => env('DB_H_PORT'),
+            'database' => env('DB_H_DB'),
+            'username' =>env('DB_H_USER'),
+            'password' => env('DB_H_PASSWORD'),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
